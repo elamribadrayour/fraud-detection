@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "fraud-detection-api"
+version = "0.1.0"
+description = ""
+authors = ["elamribadrayour <badrayour.elamri@protonmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+xgboost = "^2.1.1"
+pydantic = "^2.9.2"
+numpy = "1.26.4"
+fastapi = {extras = ["standard"], version = "^0.115.0"}
+orjson = "^3.10.7"
+pandas = "^2.2.3"
+
+
+[tool.poetry.group.ci.dependencies]
+ruff = "^0.6.8"
+mypy = "^1.11.2"
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

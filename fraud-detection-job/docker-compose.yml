@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  fraud-detection-job-prepare:
+    user: root
+    image: fraud-detection-job:0.1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      CACHE_PATH: "/code/data"
+      EXEC_DATE: "2024-09-26-16-53-04"
+    volumes:
+      - ./src/job/:/code/job
+      - ../fraud-detection-cache:/code/data
+    command: python main.py prepare
+
+  fraud-detection-job-train:
+    user: root
+    image: fraud-detection-job:0.1
+    environment:
+      CACHE_PATH: "/code/data"
+      MODEL_NAME: "xgboost_classifier"
+    volumes:
+      - ./src/job/:/code/job
+      - ../fraud-detection-cache:/code/data
+    command: python main.py train
+
+  fraud-detection-job-evaluate:
+    user: root
+    image: fraud-detection-job:0.1
+    environment:
+      CACHE_PATH: "/code/data"
+      MODEL_NAME: "xgboost_classifier"
+    volumes:
+      - ./src/job/:/code/job
+      - ../fraud-detection-cache:/code/data
+    command: python main.py evaluate
+ 

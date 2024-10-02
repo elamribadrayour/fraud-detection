@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "fraud-detection-job"
+version = "0.1.0"
+description = ""
+authors = ["elamribadrayour <badrayour.elamri@protonmail.com>"]
+readme = "readme.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+kaggle = "^1.6.17"
+pandas = "^2.2.3"
+xgboost = "^2.1.1"
+scikit-learn = "^1.5.2"
+numpy = "1.26.4"
+shap = "^0.46.0"
+typer = "^0.12.5"
+requests = "^2.32.3"
+pyarrow = "^17.0.0"
+matplotlib = "^3.9.2"
+imbalanced-learn = "^0.12.3"
+joblib = "^1.4.2"
+
+
+[tool.poetry.group.ci.dependencies]
+mypy = "^1.11.2"
+ruff = "^0.6.8"
+pandas-stubs = "^2.2.2.240909"
+types-shapely = "^2.0.0.20240820"
+types-requests = "^2.32.0.20240914"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+ignore_missing_imports = true
